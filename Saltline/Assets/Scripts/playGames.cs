@@ -8,6 +8,7 @@ public class playGames : MonoBehaviour
 {
 
     public Text displayed;
+    public string Instructions;
     public int players = 0;
     public GameObject intro;
 
@@ -20,7 +21,12 @@ public class playGames : MonoBehaviour
     {
 
         intro = GameObject.FindGameObjectWithTag("Intro");
-        displayed.text = "Hello, welcome to Saltline!";
+        Instructions = "(pay 1) flip any card on the field face up\n(pay 2) peak at any face down card " +
+                "and leave it face down\n(pay 3) discard any card in any player's hand\n(gain 1) let your opponent peak at any 3 face down cards\n" +
+                "(gain 2) let your opponent peak at any 5 face down cards\n(gain 4) reveal your card to your opponent\n (free) chose any card on the " +
+                "field to be your card in battle\n(free) surrender; no defense but opponent does not gain resources\n(free) ready for battle; gain 3 if" +
+                " you win battle\n (payment varies) battle; pay the value of your card to attack\n";
+        displayed.text = "Hello, welcome to Saltline! The game where players\nuse limited resources to deplete their opponent's even more \nlimited health. So how many players this time?";
         isSetup = false;
         winner = 0;
         player = 0;
@@ -32,6 +38,7 @@ public class playGames : MonoBehaviour
     {
         if (players != 0 && !isSetup)
         {
+            
             displayed.text = "Great, " + players + " players today!";
             isSetup = true;
             intro.SetActive(false);
@@ -65,6 +72,7 @@ public class playGames : MonoBehaviour
         {
             int numChosen = candidates[rand.Next(0, candidates.Count)];
             field[j] = numChosen;
+            Debug.Log(field[j]);
             candidates.Remove(numChosen);
         }
 
