@@ -11,6 +11,9 @@ public class playGames : MonoBehaviour
     public string Instructions;
     public int players = 0;
     public GameObject intro;
+    public GameObject field;
+    public GameObject field3;
+    public GameObject field4;
 
     bool isSetup;
     int winner;
@@ -21,6 +24,9 @@ public class playGames : MonoBehaviour
     {
 
         intro = GameObject.FindGameObjectWithTag("Intro");
+        field = GameObject.FindGameObjectWithTag("Field");
+        field3 = GameObject.FindGameObjectWithTag("3field");
+        field4 = GameObject.FindGameObjectWithTag("4field");
         Instructions = "(pay 1) flip any card on the field face up\n(pay 2) peak at any face down card " +
                 "and leave it face down\n(pay 3) discard any card in any player's hand\n(gain 1) let your opponent peak at any 3 face down cards\n" +
                 "(gain 2) let your opponent peak at any 5 face down cards\n(gain 4) reveal your card to your opponent\n (free) chose any card on the " +
@@ -42,6 +48,13 @@ public class playGames : MonoBehaviour
             displayed.text = "Great, " + players + " players today!";
             isSetup = true;
             intro.SetActive(false);
+      
+            if (players == 2) {
+                field3.SetActive(false);
+                field4.SetActive(false);
+            }
+            if (players == 3) { field4.SetActive(false); }
+            field.GetComponent<Transform>().localScale = new Vector3(1, 1, 1);
         }
 
         if (players != 0 && winner == 0)

@@ -9,6 +9,9 @@ TagManager:
   - 4players
   - Intro
   - Field
+  - 2field
+  - 3field
+  - 4field
   layers:
   - Default
   - TransparentFX
