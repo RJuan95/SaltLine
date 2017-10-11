@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +14,25 @@ public class playGames : MonoBehaviour
     public GameObject field;
     public GameObject field3;
     public GameObject field4;
+    public bool makeMove = false;
+    public int[] Field;
+
+    public Texture one;
+    public Texture two;
+    public Texture three;
+    public Texture four;
+    public Texture five;
+    public Texture six;
+    public Texture seven;
+    public Texture eight;
+    public Texture nine;
+    public Texture ten;
+    public Texture eleven;
+    public Texture twelve;
+    public Texture thirteen;
+    public Texture fourteen;
+    public Texture fifthteen;
+    public Texture none;
 
     bool isSetup;
     int winner;
@@ -69,11 +88,11 @@ public class playGames : MonoBehaviour
 
     void startRound(int firstPlayer, int totalPlayers)
     {
-
+        //bool ready = false;
         int totalCards = 3 * totalPlayers + 3;
         int numCards = totalCards - 2;
         List<int> candidates = new List<int>();
-        int[] field = new int[numCards];
+        Field = new int[numCards];
         System.Random rand = new System.Random();
 
         for (int i = 1; i <= totalCards; i++)
@@ -84,10 +103,13 @@ public class playGames : MonoBehaviour
         for (int j = 0; j < numCards; j++)
         {
             int numChosen = candidates[rand.Next(0, candidates.Count)];
-            field[j] = numChosen;
-            Debug.Log(field[j]);
+            Field[j] = numChosen;
+            //Debug.Log(Field[j]);
             candidates.Remove(numChosen);
         }
 
+        makeMove = true;
+
+        //while (!ready) { }
     }
 }

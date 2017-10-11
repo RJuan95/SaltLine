@@ -12,6 +12,7 @@ TagManager:
   - 2field
   - 3field
   - 4field
+  - card
   layers:
   - Default
   - TransparentFX
