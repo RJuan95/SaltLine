@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6
+  mat: {fileID: 2100000, guid: 27339cc0f1a3fe945b2d0b3e11747f40, type: 2}
 --- !u!1 &93973487
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3
+  mat: {fileID: 2100000, guid: 5b656352944afef4489b46a97cd70dba, type: 2}
 --- !u!1 &111586563
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9
+  mat: {fileID: 2100000, guid: 5d93a56e1e34f9a46bf33e9d210fa7cb, type: 2}
 --- !u!1 &145000445
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,6 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4
+  mat: {fileID: 2100000, guid: fa6040b39c20acb45b9d7cb0d59736d7, type: 2}
 --- !u!1 &277041841
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,6 +940,22 @@ MonoBehaviour:
   field4: {fileID: 0}
   makeMove: 0
   Field: 
+  one: {fileID: 2800000, guid: 0a4241be2e9ee0e4d8718499f6e9a68e, type: 3}
+  two: {fileID: 2800000, guid: f75746074312b0d47971b17503bdddc8, type: 3}
+  three: {fileID: 2800000, guid: a6cc8db112bf0204e96e6a62758f9dfa, type: 3}
+  four: {fileID: 2800000, guid: 6fbe63fefa2eb464b8b3ef54acd938e8, type: 3}
+  five: {fileID: 2800000, guid: e43f341c3eee4d14abb0ab90bd00dca7, type: 3}
+  six: {fileID: 2800000, guid: 63e9cc84cef3e8f419f21f3df5ddb9b6, type: 3}
+  seven: {fileID: 2800000, guid: 4c09cd827b33e6b4b8f8f35dd02a13f8, type: 3}
+  eight: {fileID: 2800000, guid: 5d8504dc1b59f1b4498144933296b463, type: 3}
+  nine: {fileID: 2800000, guid: 2215566ca7f3fdc4cb5580b4403bfe7d, type: 3}
+  ten: {fileID: 2800000, guid: a8c899c779e23ae4290e63a86b9ab64f, type: 3}
+  eleven: {fileID: 2800000, guid: a1da8d48d39cc9844946711783b26776, type: 3}
+  twelve: {fileID: 2800000, guid: 62f99e3f1dbacf54f8f361eb3a55bc29, type: 3}
+  thirteen: {fileID: 2800000, guid: 8bb362ea6ed298645b8db1d78cc33108, type: 3}
+  fourteen: {fileID: 2800000, guid: 9fc628283cc3e1844974d93603418704, type: 3}
+  fifthteen: {fileID: 2800000, guid: 9dc15873303cdb148835a6c50b30b973, type: 3}
+  none: {fileID: 2800000, guid: 2773c99a47760ce4f99922ecdf1611bc, type: 3}
 --- !u!4 &762142372
 Transform:
   m_ObjectHideFlags: 0
@@ -1215,6 +1235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8
+  mat: {fileID: 2100000, guid: 156dffda652ffab4298906231cbf2d9a, type: 2}
 --- !u!1 &1120507896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12
+  mat: {fileID: 2100000, guid: 4a99ddb8dfd9a21448ea2ca8b33a2bac, type: 2}
 --- !u!1 &1256449825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,6 +1457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7
+  mat: {fileID: 2100000, guid: 62e2d34256d661a428829c1d1a2c72a8, type: 2}
 --- !u!1 &1404205962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,6 +1568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
+  mat: {fileID: 2100000, guid: 1de7482bf0dae2042be6b7607e9a695d, type: 2}
 --- !u!1 &1563142550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,6 +1679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5
+  mat: {fileID: 2100000, guid: 99daacbd414619148af7173debdd2d7d, type: 2}
 --- !u!1 &1666905473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,6 +1790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11
+  mat: {fileID: 2100000, guid: f9f467d1792429248baba90350789678, type: 2}
 --- !u!1 &1785779295
 GameObject:
   m_ObjectHideFlags: 0
@@ -2032,6 +2058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10
+  mat: {fileID: 2100000, guid: 8ec2f41621de9db4295116baae851c8c, type: 2}
 --- !u!1 &1891191526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2398,6 +2425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2
+  mat: {fileID: 2100000, guid: 2e0dd8c52661ca341a6110f10b4d1c56, type: 2}
 --- !u!1 &2139455720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,3 +2536,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1
+  mat: {fileID: 2100000, guid: c4ae5c51461dad3489604e54a29776ea, type: 2}
