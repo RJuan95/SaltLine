@@ -13,6 +13,12 @@ TagManager:
   - 3field
   - 4field
   - card
+  - options
+  - Peak
+  - Pick
+  - RevealOne
+  - Next
+  - Regain
   layers:
   - Default
   - TransparentFX
