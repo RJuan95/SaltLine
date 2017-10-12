@@ -45,6 +45,20 @@ public class playGames : MonoBehaviour
     public Texture fifthteen;
     public Texture none;
 
+    public Material one1;
+    public Material two1;
+    public Material three1;
+    public Material four1;
+    public Material five1;
+    public Material six1;
+    public Material seven1;
+    public Material eight1;
+    public Material nine1;
+    public Material ten1;
+    public Material eleven1;
+    public Material twelve1;
+    public Material thirteen1;
+
     bool isSetup;
     int winner;
     int player;
@@ -70,7 +84,7 @@ public class playGames : MonoBehaviour
     // Use this for initialization
     public void Start()
     {
-
+        resetCards();
         intro = GameObject.FindGameObjectWithTag("Intro");
         options = GameObject.FindGameObjectWithTag("options");
         field = GameObject.FindGameObjectWithTag("Field");
@@ -81,7 +95,7 @@ public class playGames : MonoBehaviour
                 "(gain 2) let your opponent peak at any 5 face down cards\n(gain 4) reveal your card to your opponent\n (free) chose any card on the " +
                 "field to be your card in battle\n(free) surrender; no defense but opponent does not gain resources\n(free) ready for battle; gain 3 if" +
                 " you win battle\n (payment varies) battle; pay the value of your card to attack\n";
-        displayed.text = "Hello, welcome to Saltline! The game where players\nuse limited resources to deplete their opponent's even more limited health. So how many players this time?";
+        displayed.text = "Hello, welcome to Saltline! The game where players use limited resources to deplete their\nopponent's even more limited health to win. So how many players this time?";
         isSetup = false;
         winner = 0;
         player = 0;
@@ -94,9 +108,16 @@ public class playGames : MonoBehaviour
         if (players != 0 && !isSetup)
         {
 
-            displayed.text = "Great, " + players + " players which means" +
-                " the highest card is " + (3 * players + 3) + ". Please make" +
-                " a move or click Instructions if this is your first time playing.";
+            displayed.text = "1. Great, " + players + " players meaning" +
+                " highest card is " + (3 * players + 3) + ". Make" +
+                " a move by clicking on an action button and possibly " +
+                "a card to apply.\n2. Pay 2 coins to reveal a card, gain " +
+                "no more than 4 coins per round, or hire an ally " +
+                "(must pay their value if they're strongest ally).\n3. Choose" +
+                " the strongest ally to attack all your opponents' allies;  They" +
+                " lose HP (health) by the difference in value respectively." +
+                "\n4. Battle begins and then round ends when everyone has selected " +
+                "an ally. Win by being the last player standing with HP.";
             isSetup = true;
             intro.SetActive(false);
 
@@ -105,12 +126,12 @@ public class playGames : MonoBehaviour
                 P1 = new playerInfo(9, 20, 0);
                 r1 = new List<bool>();
                 for (int i = 0; i < 7; i++) { r1.Add(false); }
-                p1.text = "player 1:\nHP: " + P1.x + "\nRP: " + P1.y;
+                p1.text = "player 1:\nHP: " + P1.x + "\nCoins: " + P1.y;
 
                 P2 = new playerInfo(9, 20, 0);
                 r2 = new List<bool>();
                 for (int i = 0; i < 7; i++) { r2.Add(false); }
-                p2.text = "player 2:\nHP: " + P2.x + "\nRP: " + P2.y;
+                p2.text = "player 2:\nHP: " + P2.x + "\nCoins: " + P2.y;
 
                 field3.SetActive(false);
                 field4.SetActive(false);
@@ -123,17 +144,17 @@ public class playGames : MonoBehaviour
                 P1 = new playerInfo(12, 25, 0);
                 r1 = new List<bool>();
                 for (int i = 0; i < 10; i++) { r1.Add(false); }
-                p1.text = "player 1:\nHP: " + P1.x + "\nRP: " + P1.y;
+                p1.text = "player 1:\nHP: " + P1.x + "\nCoins: " + P1.y;
 
                 P2 = new playerInfo(12, 25, 0);
                 r2 = new List<bool>();
                 for (int i = 0; i < 10; i++) { r2.Add(false); }
-                p2.text = "player 2:\nHP: " + P2.x + "\nRP: " + P2.y;
+                p2.text = "player 2:\nHP: " + P2.x + "\nCoins: " + P2.y;
 
                 P3 = new playerInfo(12, 25, 0);
                 r3 = new List<bool>();
                 for (int i = 0; i < 10; i++) { r3.Add(false); }
-                p3.text = "player 3:\nHP: " + P3.x + "\nRP: " + P3.y;
+                p3.text = "player 3:\nHP: " + P3.x + "\nCoins: " + P3.y;
 
                 field4.SetActive(false);
                 r = new List<bool>();
@@ -145,22 +166,22 @@ public class playGames : MonoBehaviour
                 P1 = new playerInfo(15, 30, 0);
                 r1 = new List<bool>();
                 for (int i = 0; i < 13; i++) { r1.Add(false); }
-                p1.text = "player 1:\nHP: " + P1.x + "\nRP: " + P1.y;
+                p1.text = "player 1:\nHP: " + P1.x + "\nCoins: " + P1.y;
 
                 P2 = new playerInfo(15, 30, 0);
                 r2 = new List<bool>();
                 for (int i = 0; i < 13; i++) { r2.Add(false); }
-                p2.text = "player 2:\nHP: " + P2.x + "\nRP: " + P2.y;
+                p2.text = "player 2:\nHP: " + P2.x + "\nCoins: " + P2.y;
 
                 P3 = new playerInfo(15, 30, 0);
                 r3 = new List<bool>();
                 for (int i = 0; i < 13; i++) { r3.Add(false); }
-                p3.text = "player 3:\nHP: " + P3.x + "\nRP: " + P3.y;
+                p3.text = "player 3:\nHP: " + P3.x + "\nCoins: " + P3.y;
 
                 P4 = new playerInfo(15, 30, 0);
                 r4 = new List<bool>();
                 for (int i = 0; i < 13; i++) { r4.Add(false); }
-                p4.text = "player 4:\nHP: " + P4.x + "\nRP: " + P4.y;
+                p4.text = "player 4:\nHP: " + P4.x + "\nCoins: " + P4.y;
 
                 r = new List<bool>();
                 for (int i = 0; i < 13; i++) { r.Add(false); }
@@ -181,7 +202,7 @@ public class playGames : MonoBehaviour
 
     }
 
-    void startRound(int totalPlayers)
+    public void startRound(int totalPlayers)
     {
         int totalCards = 3 * totalPlayers + 3;
         int numCards = totalCards - 2;
@@ -201,6 +222,37 @@ public class playGames : MonoBehaviour
             //Debug.Log(Field[j]);
             candidates.Remove(numChosen);
         }
+    }
+
+    public void resetCards()
+    {
+        one1.mainTexture = none;
+        two1.mainTexture = none;
+        three1.mainTexture = none;
+        four1.mainTexture = none;
+        five1.mainTexture = none;
+        six1.mainTexture = none;
+        seven1.mainTexture = none;
+        eight1.mainTexture = none;
+        nine1.mainTexture = none;
+        ten1.mainTexture = none;
+        eleven1.mainTexture = none;
+        twelve1.mainTexture = none;
+        thirteen1.mainTexture = none;
+
+        one1.color = Color.white;
+        two1.color = Color.white; 
+        three1.color = Color.white;
+        four1.color = Color.white;
+        five1.color = Color.white;
+        six1.color = Color.white;
+        seven1.color = Color.white;
+        eight1.color = Color.white;
+        nine1.color = Color.white;
+        ten1.color = Color.white;
+        eleven1.color = Color.white;
+        twelve1.color = Color.white;
+        thirteen1.color = Color.white;
     }
 }
     /*

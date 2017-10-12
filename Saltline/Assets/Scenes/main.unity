@@ -691,7 +691,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " ( \u0361\xB0 \u035C\u0296 \u0361\xB0)"
+  m_Text: Player 1, your turn
 --- !u!222 &168783462
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1496,7 +1496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 200}
+  m_AnchoredPosition: {x: 0, y: 250}
   m_SizeDelta: {x: 1600, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &735574164
@@ -1600,6 +1600,19 @@ MonoBehaviour:
   fourteen: {fileID: 2800000, guid: 9fc628283cc3e1844974d93603418704, type: 3}
   fifthteen: {fileID: 2800000, guid: 9dc15873303cdb148835a6c50b30b973, type: 3}
   none: {fileID: 2800000, guid: 2773c99a47760ce4f99922ecdf1611bc, type: 3}
+  one1: {fileID: 2100000, guid: 1de7482bf0dae2042be6b7607e9a695d, type: 2}
+  two1: {fileID: 2100000, guid: c4ae5c51461dad3489604e54a29776ea, type: 2}
+  three1: {fileID: 2100000, guid: 2e0dd8c52661ca341a6110f10b4d1c56, type: 2}
+  four1: {fileID: 2100000, guid: 5b656352944afef4489b46a97cd70dba, type: 2}
+  five1: {fileID: 2100000, guid: fa6040b39c20acb45b9d7cb0d59736d7, type: 2}
+  six1: {fileID: 2100000, guid: 99daacbd414619148af7173debdd2d7d, type: 2}
+  seven1: {fileID: 2100000, guid: 27339cc0f1a3fe945b2d0b3e11747f40, type: 2}
+  eight1: {fileID: 2100000, guid: 62e2d34256d661a428829c1d1a2c72a8, type: 2}
+  nine1: {fileID: 2100000, guid: 156dffda652ffab4298906231cbf2d9a, type: 2}
+  ten1: {fileID: 2100000, guid: 5d93a56e1e34f9a46bf33e9d210fa7cb, type: 2}
+  eleven1: {fileID: 2100000, guid: 8ec2f41621de9db4295116baae851c8c, type: 2}
+  twelve1: {fileID: 2100000, guid: f9f467d1792429248baba90350789678, type: 2}
+  thirteen1: {fileID: 2100000, guid: 4a99ddb8dfd9a21448ea2ca8b33a2bac, type: 2}
 --- !u!4 &762142372
 Transform:
   m_ObjectHideFlags: 0
