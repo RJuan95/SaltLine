@@ -12,6 +12,7 @@ public class playGames : MonoBehaviour
     public Text p2;
     public Text p3;
     public Text p4;
+    public Text result;
 
     public string Instructions;
     public int players;

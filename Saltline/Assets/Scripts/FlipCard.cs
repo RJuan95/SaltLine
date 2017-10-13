@@ -378,6 +378,11 @@ public class FlipCard : MonoBehaviour {
     }
 
     private void fight(int v1, int v2, int v3, int v4) {
+        roundStuff.result.text = "";
+        int c1 = v1;
+        int c2 = v2;
+        int c3 = v3;
+        int c4 = v4;
         int max = 0;
         int maxHP = 0;
         maxplayer = 0;
@@ -436,6 +441,38 @@ public class FlipCard : MonoBehaviour {
                 counter++;
             }
             else { winner = i + 1; }
+        }
+        if (c1 > 0)
+        {
+            if (v1 > 0) { roundStuff.result.text = roundStuff.result.text + "Player 1's card was " + v1 + ", lost " + (max - v1) + " HP, and payed "; }
+            else { roundStuff.result.text = roundStuff.result.text + "Player 1's card was too high to afford, lost " + (max - v1) + " HP, and payed "; }
+            if (pay == 1) { roundStuff.result.text = roundStuff.result.text + max + " coin(s)"; }
+            else { roundStuff.result.text = roundStuff.result.text + " 0 coin(s)"; }
+
+        }
+        if (c2 > 0)
+        {
+            if (v2 > 0) { roundStuff.result.text = roundStuff.result.text + "\nPlayer 2's card was " + v2 + ", lost " + (max - v2) + " HP, and payed "; }
+            else { roundStuff.result.text = roundStuff.result.text + "\nPlayer 2's card was too high to afford, lost " + (max - v2) + " HP, and payed "; }
+            if (pay == 2) { roundStuff.result.text = roundStuff.result.text + max + " coin(s)"; }
+            else { roundStuff.result.text = roundStuff.result.text + " 0 coin(s)"; }
+
+        }
+        if (c3 > 0)
+        {
+            if (v3 > 0) { roundStuff.result.text = roundStuff.result.text + "\nPlayer 3's card was " + v3 + ", lost " + (max - v3) + " HP, and payed "; }
+            else { roundStuff.result.text = roundStuff.result.text + "\nPlayer 3's card was too high to afford, lost " + (max - v3) + " HP, and payed "; }
+            if (pay == 3) { roundStuff.result.text = roundStuff.result.text + max + " coin(s)"; }
+            else { roundStuff.result.text = roundStuff.result.text + " 0 coin(s)"; }
+
+        }
+        if (c4 > 0)
+        {
+            if (v4 > 0) { roundStuff.result.text = roundStuff.result.text + "\nPlayer 4's card was " + v4 + ", lost " + (max - v4) + " HP, and payed "; }
+            else { roundStuff.result.text = roundStuff.result.text + "\nPlayer 4's card was too high to afford, lost " + (max - v4) + " HP, and payed "; }
+            if (pay == 4) { roundStuff.result.text = roundStuff.result.text + max + " coin(s)"; }
+            else { roundStuff.result.text = roundStuff.result.text + " 0 coin(s)"; }
+
         }
         if (health[0] > 0) { roundStuff.p1.text = "player 1:\nHP: " + roundStuff.P1.x + "\nCoins: " + roundStuff.P1.y; }
         else { roundStuff.p1.text = ""; }
