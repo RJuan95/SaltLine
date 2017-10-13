@@ -11,14 +11,17 @@ public class FlipCard : MonoBehaviour {
     GameObject Peak;
     GameObject Pick;
     GameObject Next;
+    GameObject Pass;
     playGames roundStuff;
     FlipCard peakStuff;
     FlipCard pickStuff;
     FlipCard nextStuff;
+    PassGain passStuff;
     public int player;
     int index;
     int number;
     int turn = 0;
+    int maxplayer = 1;
     public bool check;
     public bool take;
     public Text p;
@@ -40,16 +43,18 @@ public class FlipCard : MonoBehaviour {
         peakStuff = Peak.GetComponent<FlipCard>();
         pickStuff = Pick.GetComponent<FlipCard>();
         nextStuff = Next.GetComponent<FlipCard>();
+        passStuff = Next.GetComponent<PassGain>();
         //if (ID >= 0) { mat.mainTexture = roundStuff.none; }
-        if (roundStuff.P1.x > 0) { p.text = "Player 1, your turn"; nextStuff.player = 1; }
-        else if (roundStuff.P2.x > 0) { p.text = "Player 2, your turn"; nextStuff.player = 2; }
-        else if (roundStuff.P3.x > 0) { p.text = "Player 3, your turn"; nextStuff.player = 3; }
-        else if (roundStuff.P4.x > 0) { p.text = "Player 4, your turn"; nextStuff.player = 4; }
+        if (maxplayer == 1) { p.text = "Player 1, your turn"; nextStuff.player = 1; }
+        else if (maxplayer == 2) { p.text = "Player 2, your turn"; nextStuff.player = 2; }
+        else if (maxplayer == 3) { p.text = "Player 3, your turn"; nextStuff.player = 3; }
+        else if (maxplayer == 4) { p.text = "Player 4, your turn"; nextStuff.player = 4; }
 
-        limit1 = 4;
-        limit2 = 4;
-        limit3 = 4;
-        limit4 = 4;
+        nextStuff.limit1 = 4;
+        nextStuff.limit2 = 4;
+        nextStuff.limit3 = 4;
+        nextStuff.limit4 = 4;
+        //passStuff.mat.mainTexture = passStuff.gain;
 
         roundStuff.P1.z = 0;
         roundStuff.P2.z = 0;
@@ -120,6 +125,26 @@ public class FlipCard : MonoBehaviour {
             }
             peakStuff.check = false;
             peakStuff.mat.color = Color.white;
+
+            switch (nextStuff.player)
+            {
+                case 1:
+                    roundStuff.P1.y = roundStuff.P1.y - 2;
+                    roundStuff.p1.text = "player 1:\nHP: " + roundStuff.P1.x + "\nCoins: " + roundStuff.P1.y;
+                    break;
+                case 2:
+                    roundStuff.P2.y = roundStuff.P2.y - 2;
+                    roundStuff.p2.text = "player 2:\nHP: " + roundStuff.P2.x + "\nCoins: " + roundStuff.P2.y;
+                    break;
+                case 3:
+                    roundStuff.P3.y = roundStuff.P3.y - 2;
+                    roundStuff.p3.text = "player 3:\nHP: " + roundStuff.P3.x + "\nCoins: " + roundStuff.P3.y;
+                    break;
+                case 4:
+                    roundStuff.P4.y = roundStuff.P4.y - 2;
+                    roundStuff.p4.text = "player 4:\nHP: " + roundStuff.P4.x + "\nCoins: " + roundStuff.P4.y;
+                    break;
+            }
             nextPlayer();
             if (player == 1) { roundStuff.r1[index] = true; }
             if (player == 2) { roundStuff.r2[index] = true; }
@@ -164,39 +189,57 @@ public class FlipCard : MonoBehaviour {
         }
 
         if (gameObject.tag == "Regain") {
+            pickStuff.take = false;
+            pickStuff.mat.color = Color.white;
+            peakStuff.check = false;
+            peakStuff.mat.color = Color.white;
             switch (nextStuff.player)
             {
                 case 1:
                     if (limit1 > 0) { roundStuff.P1.y++; }
+                    else { roundStuff.P1.y--; }
                     limit1--;
+                    //if (limit1 <= 0) { mat.mainTexture = passStuff.pass; }
+                    if (roundStuff.P1.y < 0) { roundStuff.P1.y = 0; }
                     roundStuff.p1.text = "player 1:\nHP: " + roundStuff.P1.x + "\nCoins: " + roundStuff.P1.y;
                     break;
                 case 2:
                     if (limit2 > 0) { roundStuff.P2.y++; }
+                    else { roundStuff.P2.y--; }
                     limit2--;
+                    //if (limit2 <= 0) { mat.mainTexture = passStuff.pass; }
+                    if (roundStuff.P2.y < 0) { roundStuff.P2.y = 0; }
                     roundStuff.p2.text = "player 2:\nHP: " + roundStuff.P2.x + "\nCoins: " + roundStuff.P2.y;
                     break;
                 case 3:
                     if (limit3 > 0) { roundStuff.P3.y++; }
+                    else { roundStuff.P3.y--; }
                     limit3--;
+                    //if (limit3 <= 0) { mat.mainTexture = passStuff.pass; }
+                    if (roundStuff.P3.y < 0) { roundStuff.P3.y = 0; }
                     roundStuff.p3.text = "player 3:\nHP: " + roundStuff.P3.x + "\nCoins: " + roundStuff.P3.y;
                     break;
                 case 4:
                     if (limit4 > 0) { roundStuff.P4.y++; }
+                    else { roundStuff.P4.y--; }
                     limit4--;
+                    //if (limit4 <= 0) { mat.mainTexture = passStuff.pass; }
+                    if (roundStuff.P4.y < 0) { roundStuff.P4.y = 0; }
                     roundStuff.p4.text = "player 4:\nHP: " + roundStuff.P4.x + "\nCoins: " + roundStuff.P4.y;
                     break;
             }
             nextPlayer();
         }
-        else if (gameObject.tag == "RevealOne" && pickStuff.take == false)
+        else if (gameObject.tag == "RevealOne")
         {
+            pickStuff.take = false;
+            pickStuff.mat.color = Color.white;
             switch (nextStuff.player)
             {
                 case 1:
                     if (roundStuff.P1.y >= 2)
                     {
-                        roundStuff.P1.y = roundStuff.P1.y - 2;
+                        //roundStuff.P1.y = roundStuff.P1.y - 2;
                         mat.color = Color.magenta;
                         check = true;
                     }
@@ -205,7 +248,7 @@ public class FlipCard : MonoBehaviour {
                 case 2:
                     if (roundStuff.P2.y >= 2)
                     {
-                        roundStuff.P2.y = roundStuff.P2.y - 2;
+                        //roundStuff.P2.y = roundStuff.P2.y - 2;
                         mat.color = Color.magenta;
                         check = true;
                     }
@@ -214,7 +257,7 @@ public class FlipCard : MonoBehaviour {
                 case 3:
                     if (roundStuff.P3.y >= 2)
                     {
-                        roundStuff.P3.y = roundStuff.P3.y - 2;
+                        //roundStuff.P3.y = roundStuff.P3.y - 2;
                         mat.color = Color.magenta;
                         check = true;
                     }
@@ -223,7 +266,7 @@ public class FlipCard : MonoBehaviour {
                 case 4:
                     if (roundStuff.P4.y >= 2)
                     {
-                        roundStuff.P4.y = roundStuff.P4.y - 2;
+                        //roundStuff.P4.y = roundStuff.P4.y - 2;
                         mat.color = Color.magenta;
                         check = true;
                     }
@@ -232,8 +275,10 @@ public class FlipCard : MonoBehaviour {
             }
         }
 
-        else if (gameObject.tag == "Pick" && peakStuff.check == false) {
+        else if (gameObject.tag == "Pick") {
             take = true;
+            peakStuff.check = false;
+            peakStuff.mat.color = Color.white;
             mat.color = Color.magenta;
         }
 
@@ -248,7 +293,8 @@ public class FlipCard : MonoBehaviour {
         bool pd4 = false;
 
         nextStuff.player++;
-        if (nextStuff.player > roundStuff.players) { nextStuff.player = nextStuff.player - roundStuff.players; }
+        // replace 4 with roundStuff.players if issues arise
+        if (nextStuff.player > 4) { nextStuff.player = nextStuff.player - 4; }
         if (nextStuff.player == 1 && (roundStuff.P1.x <= 0 || roundStuff.P1.z > 0)) {
             //turn++;
             nextStuff.player++;
@@ -269,7 +315,7 @@ public class FlipCard : MonoBehaviour {
             nextStuff.player++;
             pd4 = true;
         }
-        if (nextStuff.player > roundStuff.players) { nextStuff.player = nextStuff.player - roundStuff.players; }
+        if (nextStuff.player > 4) { nextStuff.player = nextStuff.player - 4; }
         if (nextStuff.player == 1 && (roundStuff.P1.x <= 0 || roundStuff.P1.z > 0))
         {
             //turn++;
@@ -294,12 +340,28 @@ public class FlipCard : MonoBehaviour {
             nextStuff.player++;
             pd4 = true;
         }
-        if (nextStuff.player > roundStuff.players) { nextStuff.player = nextStuff.player - roundStuff.players; }
+        if (nextStuff.player > 4) { nextStuff.player = nextStuff.player - 4; }
 
-        if (nextStuff.player == 1) { p.text = "Player 1, your turn"; }
-        else if (nextStuff.player == 2) { p.text = "Player 2, your turn"; }
-        else if (nextStuff.player == 3) { p.text = "Player 3, your turn"; }
-        else if (nextStuff.player == 4) { p.text = "Player 4, your turn"; }
+        if (nextStuff.player == 1) {
+            p.text = "Player 1, your turn";
+            if (nextStuff.limit1 > 0) { passStuff.Start(); }
+            else { passStuff.mat.mainTexture = passStuff.pass; }
+        }
+        else if (nextStuff.player == 2) {
+            p.text = "Player 2, your turn";
+            if (nextStuff.limit2 > 0) { passStuff.Start(); }
+            else { passStuff.mat.mainTexture = passStuff.pass; }
+        }
+        else if (nextStuff.player == 3) {
+            p.text = "Player 3, your turn";
+            if (nextStuff.limit3 > 0) { passStuff.Start(); }
+            else { passStuff.mat.mainTexture = passStuff.pass; }
+        }
+        else if (nextStuff.player == 4) {
+            p.text = "Player 4, your turn";
+            if (nextStuff.limit4 > 0) { passStuff.Start(); }
+            else { passStuff.mat.mainTexture = passStuff.pass; }
+        }
 
         if (pd1 == true && pd2 == true && pd3 == true && pd4 == true) {
             if (roundStuff.P1.x > 0) { nextStuff.player = 1; }
@@ -317,6 +379,8 @@ public class FlipCard : MonoBehaviour {
 
     private void fight(int v1, int v2, int v3, int v4) {
         int max = 0;
+        int maxHP = 0;
+        maxplayer = 0;
         int pay = 0;
         int counter = 0;
         int winner = 0;
@@ -363,6 +427,10 @@ public class FlipCard : MonoBehaviour {
         health[3] = roundStuff.P4.x;
 
         for (int i = 0; i < health.Length; i++) {
+            if (health[i] > maxHP) {
+                maxHP = health[i];
+                maxplayer = (i + 1);
+            }
             if (health[i] <= 0) {
                 health[i] = 0;
                 counter++;
@@ -385,6 +453,7 @@ public class FlipCard : MonoBehaviour {
         {
             roundStuff.startRound(roundStuff.players);
             roundStuff.resetCards();
+            passStuff.Start();
             Start();
         }
         else { p.text = "Something has gone wrong :/"; }

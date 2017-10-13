@@ -738,7 +738,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 207406811}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.35, y: 0.27, z: 0}
+  m_LocalPosition: {x: -0.35, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 0, z: 1}
   m_Children:
   - {fileID: 1011542238}
@@ -1422,7 +1422,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 350}
+  m_AnchoredPosition: {x: 0, y: 365}
   m_SizeDelta: {x: 1600, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &714901548
@@ -1497,7 +1497,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 250}
-  m_SizeDelta: {x: 1600, y: 300}
+  m_SizeDelta: {x: 1800, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &735574164
 MonoBehaviour:
@@ -1953,7 +1953,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: 350}
+  m_AnchoredPosition: {x: -100, y: 365}
   m_SizeDelta: {x: 1600, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &935215974
@@ -2030,6 +2030,7 @@ GameObject:
   - component: {fileID: 976542795}
   - component: {fileID: 976542794}
   - component: {fileID: 976542792}
+  - component: {fileID: 976542793}
   m_Layer: 0
   m_Name: Regain
   m_TagString: Regain
@@ -2067,6 +2068,20 @@ MonoBehaviour:
   check: 0
   take: 0
   p: {fileID: 168783461}
+--- !u!114 &976542793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 976542790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04afec1f7ffb65c46abf00a149383a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 07cea4f209d8d5f4482b46fe4842097e, type: 2}
+  gain: {fileID: 2800000, guid: 6a12c4303435da64f8bb18d8050410f4, type: 3}
+  pass: {fileID: 2800000, guid: c0ee16a305dbb884d9288004c74ef43d, type: 3}
 --- !u!23 &976542794
 MeshRenderer:
   m_ObjectHideFlags: 0

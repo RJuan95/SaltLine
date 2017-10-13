@@ -95,7 +95,10 @@ public class playGames : MonoBehaviour
                 "(gain 2) let your opponent peak at any 5 face down cards\n(gain 4) reveal your card to your opponent\n (free) chose any card on the " +
                 "field to be your card in battle\n(free) surrender; no defense but opponent does not gain resources\n(free) ready for battle; gain 3 if" +
                 " you win battle\n (payment varies) battle; pay the value of your card to attack\n";
-        displayed.text = "Hello, welcome to Saltline! The game where players use limited resources to deplete their\nopponent's even more limited health to win. So how many players this time?";
+        displayed.text = "\n\n\n\nHello, welcome to Saltline where Rival kingdoms have waged war and are now in need of mercenarys for hire. Playing as the " +
+            "kingdom's leaders, hire mercenarys to attack your Rival(s) and deplete all their HP (kingdom's health). The stronger the mercenary, the more they cost." +
+            " If you don't have enough money to hire your mercenary, they will abandon you and leave you vulnerable to a full attack. Remember though, You don't have " +
+            "to pay a mercenary if they don't survive the battle. Find the right strategies and risks to eliminate every other rival and secure your legendary victory.\n\nSo how many players this time?";
         isSetup = false;
         winner = 0;
         player = 0;
@@ -108,16 +111,16 @@ public class playGames : MonoBehaviour
         if (players != 0 && !isSetup)
         {
 
-            displayed.text = "1. Great, " + players + " players meaning" +
-                " highest card is " + (3 * players + 3) + ". Make" +
-                " a move by clicking on an action button and possibly " +
-                "a card to apply.\n2. Pay 2 coins to reveal a card, gain " +
-                "no more than 4 coins per round, or hire an ally " +
-                "(must pay their value if they're strongest ally).\n3. Choose" +
-                " the strongest ally to attack all your opponents' allies;  They" +
-                " lose HP (health) by the difference in value respectively." +
-                "\n4. Battle begins and then round ends when everyone has selected " +
-                "an ally. Win by being the last player standing with HP.";
+            displayed.text = "Great, " + players + " players meaning" +
+                " highest card (strongest mercenary) is " + (3 * players + 3) + ". Make" +
+                " a move by clicking on an action button and " +
+                "card.\nActions: Pay 2 coins to reveal a card, gain " +
+                "1 coin (max 4 per round), pay 1 coin to pass or pick ally (hire a mercenary).\nHire " +
+                "a mercenary when the time is right and then wait for everyone else to hire theirs. " +
+                "Once everyone has a mercenary, all mercenaries go to battle. The losers of the battle " +
+                "lose HP according to the difference between the strongest mercanary and their own. The " +
+                "victor must pay their mercenary's respective value however for the victory. A new round then starts and the game " +
+                "continues this loop until only one kingdom remains standing.";
             isSetup = true;
             intro.SetActive(false);
 
@@ -133,6 +136,8 @@ public class playGames : MonoBehaviour
                 for (int i = 0; i < 7; i++) { r2.Add(false); }
                 p2.text = "player 2:\nHP: " + P2.x + "\nCoins: " + P2.y;
 
+                P3 = new playerInfo(0, 0, 0);
+                P4 = new playerInfo(0, 0, 0);
                 field3.SetActive(false);
                 field4.SetActive(false);
                 r = new List<bool>();
@@ -156,6 +161,7 @@ public class playGames : MonoBehaviour
                 for (int i = 0; i < 10; i++) { r3.Add(false); }
                 p3.text = "player 3:\nHP: " + P3.x + "\nCoins: " + P3.y;
 
+                P4 = new playerInfo(0, 0, 0);
                 field4.SetActive(false);
                 r = new List<bool>();
                 for (int i = 0; i < 10; i++) { r.Add(false); }
